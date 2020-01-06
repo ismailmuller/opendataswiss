@@ -6,7 +6,7 @@
 #' 
 #' @usage get_package_metadata("ladestationen-fuer-elektroautos")
 #' 
-#' @value a list
+#' @eval a list
 
 get_package_metadata <- function(package_name){
   

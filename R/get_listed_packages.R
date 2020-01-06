@@ -3,7 +3,7 @@
 #' @description get the package list from opendata.swiss
 #' 
 #' @usage get_listed_packages()
-#' @value a vector of package names
+#' @eval a vector of package names
 #' 
 
 get_listed_packages <- function(verbose = TRUE){
