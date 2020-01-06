@@ -1,0 +1,21 @@
+Package: opendataswiss
+Title: Use the opendata.swiss API
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Ismail",
+           family = "Muller",
+           role = c("aut", "cre"),
+           email = "muller.ismail@gmail.com")
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    dplyr,
+    rio,
+    jsonlite
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+RoxygenNote: 7.0.2

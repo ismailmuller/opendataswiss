@@ -1,0 +1,52 @@
+---
+title: "A-Starting_guide"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{A-Starting_guide}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+# devtools::install_github("ismailmuller/opendataswiss")
+# library(opendataswiss)
+```
+
+# List of packages (datasets)
+
+To get the names of all datasets included in the [openswiss.data](www.openswiss.data) in a vector.
+
+```{r list_packages}
+pkgs <- get_listed_packages(verbose = TRUE)
+
+head(unique(pkgs))
+```
+
+# Download metadata for a given dataset.
+
+This function downloads the metadata for a given package. It takes just the name of the package as returned by `get_listed_packages()`.
+
+```{r download_metadata}
+meta <- get_package_metadata("ladestationen-fuer-elektroautos")
+# another_meta <- get_package_metadata(pkgs[1])
+
+meta$result$resources$download_url
+meta$result$resources$format
+```
+
+# Download data for a given url
+
+```{r}
+data_list <- purrr::map(
+  meta$result$resources$download_url, 
+  download_data_from_url,
+  format = "JSON")
+```
+
